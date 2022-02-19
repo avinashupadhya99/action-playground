@@ -14,7 +14,6 @@ jobs:
           files: "kubernetes-prod/*.yaml"
           framework: |
             nsa
-            devops-best
           # control: "Configured liveness probe"
       - name: Archive kubescape scan results
         uses: actions/upload-artifact@v2

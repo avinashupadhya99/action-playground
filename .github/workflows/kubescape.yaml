@@ -12,6 +12,8 @@ jobs:
         with:
           args: "--format junit --output results.xml"
           files: "kubernetes-prod/*.yaml"
-          framework: "nsa"
+          framework: 
+          - "nsa"
+          - "devopsbest"
           # control: "Configured liveness probe" 
 

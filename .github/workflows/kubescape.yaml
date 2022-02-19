@@ -12,8 +12,11 @@ jobs:
         with:
           args: "--format junit --output results.xml"
           files: "kubernetes-prod/*.yaml"
-          framework: 
-          - "nsa"
-          - "devopsbest"
-          # control: "Configured liveness probe" 
+          framework: "nsa"
+          # control: "Configured liveness probe"
+      - name: Archive kubescape scan results
+        uses: actions/upload-artifact@v2
+        with:
+          name: kubescape-scan-report
+          path: results.xml
 

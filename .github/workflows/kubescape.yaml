@@ -15,7 +15,7 @@ jobs:
           # framework: |
           #   nsa,devopsbest
           control: |
-            Configured liveness probe,Pods in default namespace
+            \"Configured liveness probe\",\"Pods in default namespace\"
       - name: Archive kubescape scan results
         uses: actions/upload-artifact@v2
         with:

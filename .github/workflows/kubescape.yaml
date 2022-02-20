@@ -10,15 +10,21 @@ jobs:
       - uses: actions/checkout@master
       - uses: avinashupadhya99/kubescape-action@main
         with:
-          args: "--verbose"
+          args: "--format junit --output results.xml"
           files: "kubernetes-prod/*.yaml"
-          # framework: |
-          #   nsa,devopsbest
-          control: |
-            Configured liveness probe,Pods in default namespace,Bash/cmd inside container
+          framework: |
+            nsa,devopsbest
+          # control: |
+          #   Configured liveness probe,Pods in default namespace,Bash/cmd inside container
       - name: Archive kubescape scan results
         uses: actions/upload-artifact@v2
         with:
           name: kubescape-scan-report
           path: results.xml
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
+        with:
+          files: results.xml
+          report_individual_runs: "true"
 

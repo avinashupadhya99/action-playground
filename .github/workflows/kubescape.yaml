@@ -27,6 +27,5 @@ jobs:
         with:
           artifact: kubescape-scan-report
           name: Kubescape Scans
-          path: '*.xml'
-          reporter: java-junit
+          path: '*.xml' 
 

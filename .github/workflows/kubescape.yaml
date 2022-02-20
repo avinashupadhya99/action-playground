@@ -22,7 +22,7 @@ jobs:
           name: kubescape-scan-report
           path: results.xml
       - name: Publish Unit Test Results
-        uses: mikepenz/action-junit-report@v2
+        uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
           report_paths: "*.xml" 
